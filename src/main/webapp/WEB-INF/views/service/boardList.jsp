@@ -12,14 +12,14 @@
 	<h2>게시글 목록</h2>
 	
 	<table>
-	<c:forEach var="bo" items="${list }" varStatus="num" >
+	<c:forEach var="bo" items="${list }">
 		<tr>
-			<td>번호:${num.index }</td>
+			<td>번호:${bo.bno }</td>
 			<td>작성자:${bo.name }</td>
 			<td>제목:${bo.title }</td>
 			<td>내용:${bo.content }</td>
-			<td>비고:${num.index }</td>
-		<td><input type="button" value="삭제" onclick="location.href='boardDelete?num=${num.index}'"></td>
+			<td>비고:${bo.bno }번째 게시글</td>
+		<td><input type="button" value="삭제" onclick="location.href='boardDelete?bno=${bo.bno}'"></td>
 		</tr>
 	</c:forEach>
 	</table>
@@ -33,7 +33,7 @@
 			-->
 			
 	<script>
-		var msg = '${msg}';  //문자열 표기  값이없을때 공백
+		var msg = '${msg}';  //문자열 표기  , 값이없을때 공백
 		
 		if(msg != ""){
 			alert(msg);

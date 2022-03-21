@@ -8,33 +8,53 @@ import org.springframework.stereotype.Service;
 
 import com.simple.command.ScoreVO;
 import com.simple.dao.ScoreDAO;
+import com.simple.mapper.ScoreMapper;
 
 @Service("xxx") //bean의 id를 xxx로
 public class ScoreServiceImpl implements ScoreService{
-
+	
 	@Autowired
-	@Qualifier("aaa")
-	ScoreDAO scoreDao;
-	
-	
+	ScoreMapper scoreMapper;
+
 	@Override
 	public void regist(ScoreVO vo) {
+		scoreMapper.regist(vo);
 		
-		scoreDao.regist(vo);
 	}
-
 
 	@Override
 	public ArrayList<ScoreVO> getList() {
-		return scoreDao.getList();
+		return scoreMapper.getList();
 	}
-
 
 	@Override
 	public void delete(int num) {
-			scoreDao.delete(num);
-		
+		scoreMapper.delete(num);
 	}
+
+//	@Autowired
+//	@Qualifier("aaa")
+//	ScoreDAO scoreDao;
+//	
+//	
+//	@Override
+//	public void regist(ScoreVO vo) {
+//		
+//		scoreDao.regist(vo);
+//	}
+//
+//
+//	@Override
+//	public ArrayList<ScoreVO> getList() {
+//		return scoreDao.getList();
+//	}
+//
+//
+//	@Override
+//	public void delete(int num) {
+//			scoreDao.delete(num);
+//		
+//	}
 	
 
 }

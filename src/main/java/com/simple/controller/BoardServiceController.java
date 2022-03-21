@@ -54,10 +54,10 @@ public class BoardServiceController {
 	}
 	
 	@RequestMapping("/boardDelete")
-	public String boardDelete(@RequestParam("num") int num,
+	public String boardDelete(@RequestParam("bno") int bno,
 							  RedirectAttributes RA) {
 		
-		boardService.boardDelete(num);
+		boardService.boardDelete(bno);
 		RA.addFlashAttribute("msg", "게시글이 삭제되었습니다");
 		
 		return "redirect:/service/boardList";
